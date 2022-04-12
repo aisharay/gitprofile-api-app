@@ -1,0 +1,53 @@
+
+<div class="container-fluid " style="margin-top:20px; ">
+
+<div *ngIf="!loadVar" style="font-size: 100px;text-align: center;">
+   Welcome!!
+</div>
+
+  <div style="margin-left: 30%;" class="container-fluid ">
+    <label for="placename" >Enter UserName</label>
+    <div class="input-group mb-1" style="width:500px; "> 
+      <input 
+      required
+      type="text"
+      class="form-control"
+      id="placename"
+      aria-describedby="textHelp"
+      [(ngModel)]="UserData.name"
+    />
+    <button class="btn btn-primary" (click)="getUserData() ">Show</button>
+  
+  </div>
+
+    <small id="textHelp" class="form-text text-muted"
+      >Please! input a valid User Name.</small
+    >
+    
+  </div>
+  
+
+
+  <div *ngIf="loadVar">
+
+ <h1 style="text-align: center;">Profile</h1>
+  <div class="text-center">
+  <img [src]="myimage"  style="height:300px;width:300px;border-radius: 50%;" alt="...">
+</div>
+
+<div style="text-align: center; color: black;">
+<h3> {{username}}</h3>
+</div>
+
+
+<div style="text-align: left;margin-left: 30%;">
+  
+<li *ngFor="let project of projects">
+  {{project.full_name}}
+
+</li>
+</div>
+
+</div>
+
+</div>
