@@ -14,6 +14,7 @@ export class AppComponent {
   username: any;
   projects:any;
   
+  spinner: boolean = false;
   loadVar: boolean = false;
   error: any = null;
   userData:any;
@@ -43,12 +44,14 @@ export class AppComponent {
   }
 
   getProjectData(): void {
+    this.spinner=true;
     this.error=null;
     this.UserData.getProjectData().subscribe(
       (data: any) => {
         console.warn('data', data);
         console.warn('data', data);
         this.projects=data;
+        this.spinner=false;
       },
       (error) => {
         console.log(error);

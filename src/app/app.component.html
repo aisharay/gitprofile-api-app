@@ -1,6 +1,5 @@
 
 <div class="container-fluid " style="margin-top:20px; ">
-
 <div *ngIf="!loadVar" style="font-size: 100px;text-align: center;">
    Welcome!!
 </div>
@@ -20,15 +19,19 @@
   
   </div>
 
-    <small id="textHelp" class="form-text text-muted"
-      >Please! input a valid User Name.</small
+    <small *ngIf="error" id="textHelp" class="form-text text-danger"
+      >{{error}}</small
     >
     
   </div>
   
+<div *ngIf="spinner" style="margin-left: 50%;margin-top:150px;">
+  <div class="spinner-border" role="status">
+    <span class="sr-only"></span>
+  </div>
+</div>
 
-
-  <div *ngIf="loadVar">
+  <div *ngIf="loadVar && !spinner">
 
  <h1 style="text-align: center;">Profile</h1>
   <div class="text-center">
